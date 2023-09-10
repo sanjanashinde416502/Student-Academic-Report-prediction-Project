@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Academic Report</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f5f9;
+        }
+
+        .report-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .report-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 36px;
+        }
+
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table-header th,
+        .table-data td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .table-header {
+            background-color: #f2f2f2;
+        }
+
+        .table-data {
+            background-color: #ffffff;
+        }
+
+        .table-data td {
+            font-size: 16px;
+        }
+
+        .last-row td {
+            border: none;
+        }
+
+        .cgpa-cell {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <h1 class="report-title"> Academic Report</h1>
+        <table class="result-table">
+            <tr class="table-header">
+                <th>Subjects</th>
+                <th>Max Marks</th>
+                <th>Marks Obtained</th>
+            </tr>
+            <tr class="table-data">
+                <td>English</td>
+                <td>100</td>
+                <td>{{request.form.get('English')}}</td>
+            </tr>
+            <tr class="table-data">
+                <td>Hindi</td>
+                <td>100</td>
+                <td>{{request.form.get('Hindi')}}</td>
+            </tr>
+            <tr class="table-data">
+                <td>Marathi</td>
+                <td>100</td>
+                <td>{{request.form.get('Marathi')}}</td>
+            </tr>
+            <tr class="table-data">
+                <td>Mathematics</td>
+                <td>100</td>
+                <td>{{request.form.get('Mathematics')}}</td>
+            </tr>
+            <tr class="table-data">
+                <td>Science</td>
+                <td>100</td>
+                <td>{{request.form.get('Science')}}</td>
+            </tr>
+            <tr class="table-data">
+                <td>Social_Science</td>
+                <td>100</td>
+                <td>{{request.form.get('Social_Science')}}</td>
+            </tr>
+
+            <!-- Add similar rows for other subjects -->
+            <tr class="last-row">
+                <td colspan="3"></td>
+            </tr>
+            <tr class="table-data">
+                <td class="cgpa-cell" align="center">Overall CGPA</td>
+                <td></td>
+                <td class="cgpa-cell" align="center">{{ result }}</td>
+            </tr>
+            <tr class="table-data">
+                <td class="cgpa-cell" align="center">Total Marks</td>
+                <td></td>
+                <td class="cgpa-cell" align="center">{{ total_marks }}</td>
+            </tr>
+            <tr class="table-data">
+                <td class="cgpa-cell" align="center">Percentage</td>
+                <td></td>
+                <td class="cgpa-cell" align="center">{{ per }}</td>
+            </tr>
+            <tr class="table-data">
+                <td class="cgpa-cell" align="center">Result</td>
+                <td></td>
+                <td class="cgpa-cell" align="center">{{ final_result }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
